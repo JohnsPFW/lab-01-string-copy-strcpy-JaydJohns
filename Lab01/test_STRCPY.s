@@ -74,6 +74,13 @@ copy_loop:
     
     // YOUR CODE HERE → branch back to 'copy_loop'
 
+LDRB    W2, [X0]      // Load byte from source
+STRB    W2, [X1]      // Store byte to destination
+CBZ     W2, done      // If null terminator, we're done
+ADD     X0, X0, #1    // Increment source pointer
+ADD     X1, X1, #1    // Increment destination pointer
+B       copy_loop     // Loop back
+
     // =========================================================================
     // STEP 3: Signal Completion
     // =========================================================================
