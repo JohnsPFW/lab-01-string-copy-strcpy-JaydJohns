@@ -23,15 +23,15 @@ jobs:
         command: bash .github/classroom/lab00_test.sh
         timeout: 1
         max-score: 15
-    - name: Lab 04 - Pipeline (30 pts)
-      id: lab-04-pipeline-30-pts
+    - name: Lab 01 - STRCPY (20 pts)
+      id: lab-01-strcpy-20-pts
       uses: classroom-resources/autograding-command-grader@v1
       with:
-        test-name: Lab 04 - Pipeline (30 pts)
+        test-name: Lab 01 - STRCPY (20 pts)
         setup-command: ''
-        command: bash .github/classroom/lab04_test.sh
-        timeout: 3
-        max-score: 30
+        command: bash .github/classroom/lab01_test.sh
+        timeout: 1
+        max-score: 20
     - name: Lab 02 - Post-Increment (20 pts)
       id: lab-02-post-increment-20-pts
       uses: classroom-resources/autograding-command-grader@v1
@@ -63,8 +63,9 @@ jobs:
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
         LAB-00-ENVIRONMENT-CHECK-15-PTS_RESULTS: "${{steps.lab-00-environment-check-15-pts.outputs.result}}"
-        LAB-04-PIPELINE-30-PTS_RESULTS: "${{steps.lab-04-pipeline-30-pts.outputs.result}}"
+        LAB-01-STRCPY-20-PTS_RESULTS: "${{steps.lab-01-strcpy-20-pts.outputs.result}}"
         LAB-02-POST-INCREMENT-20-PTS_RESULTS: "${{steps.lab-02-post-increment-20-pts.outputs.result}}"
         LAB-03-INSTRUCTIONS-15-PTS_RESULTS: "${{steps.lab-03-instructions-15-pts.outputs.result}}"
+        LAB-04-PIPELINE-30-PTS_RESULTS: "${{steps.lab-04-pipeline-30-pts.outputs.result}}"
       with:
-        runners: lab-00-environment-check-15-pts,lab-04-pipeline-30-pts,lab-02-post-increment-20-pts,lab-03-instructions-15-pts,lab-04-pipeline-30-pts
+        runners: lab-00-environment-check-15-pts,lab-01-strcpy-20-pts,lab-02-post-increment-20-pts,lab-03-instructions-15-pts,lab-04-pipeline-30-pts
