@@ -48,7 +48,7 @@ jobs:
         test-name: Lab 03 - Instructions (15 pts)
         setup-command: ''
         command: bash .github/classroom/lab03_test.sh
-        timeout: 60
+        timeout: 1
         max-score: 15
     - name: Lab 04 - Pipeline (30 pts)
       id: lab-04-pipeline-30-pts
