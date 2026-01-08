@@ -13,29 +13,58 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    - name: Lab 01 - STRCPY Verification
-      id: lab-01-strcpy-verification
+    - name: Lab 00 - Environment Check (15 pts)
+      id: lab-00-environment-check-15-pts
       uses: classroom-resources/autograding-command-grader@v1
       with:
-        test-name: Lab 01 - STRCPY Verification
+        test-name: Lab 00 - Environment Check (15 pts)
         setup-command: sudo apt-get update && sudo apt-get install -y iverilog gcc-aarch64-linux-gnu
           binutils-aarch64-linux-gnu
-        command: bash .github/classroom/lab01_test.sh
-        timeout: 10
-        max-score: 10
-    - name: Lab 00 - Environment Check
-      id: lab-00-environment-check
+        command: bash .github/classroom/lab00_test.sh
+        timeout: 1
+        max-score: 15
+    - name: Lab 04 - Pipeline (30 pts)
+      id: lab-04-pipeline-30-pts
       uses: classroom-resources/autograding-command-grader@v1
       with:
-        test-name: Lab 00 - Environment Check
+        test-name: Lab 04 - Pipeline (30 pts)
         setup-command: ''
-        command: bash .github/classroom/lab00_test.sh
-        timeout: 10
-        max-score: 5
+        command: bash .github/classroom/lab04_test.sh
+        timeout: 3
+        max-score: 30
+    - name: Lab 02 - Post-Increment (20 pts)
+      id: lab-02-post-increment-20-pts
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Lab 02 - Post-Increment (20 pts)
+        setup-command: ''
+        command: bash .github/classroom/lab02_test.sh
+        timeout: 60
+        max-score: 20
+    - name: Lab 03 - Instructions (15 pts)
+      id: lab-03-instructions-15-pts
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Lab 03 - Instructions (15 pts)
+        setup-command: ''
+        command: bash .github/classroom/lab03_test.sh
+        timeout: 60
+        max-score: 15
+    - name: Lab 04 - Pipeline (30 pts)
+      id: lab-04-pipeline-30-pts
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Lab 04 - Pipeline (30 pts)
+        setup-command: ''
+        command: bash .github/classroom/lab04_test.sh
+        timeout: 60
+        max-score: 30
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
-        LAB-01-STRCPY-VERIFICATION_RESULTS: "${{steps.lab-01-strcpy-verification.outputs.result}}"
-        LAB-00-ENVIRONMENT-CHECK_RESULTS: "${{steps.lab-00-environment-check.outputs.result}}"
+        LAB-00-ENVIRONMENT-CHECK-15-PTS_RESULTS: "${{steps.lab-00-environment-check-15-pts.outputs.result}}"
+        LAB-04-PIPELINE-30-PTS_RESULTS: "${{steps.lab-04-pipeline-30-pts.outputs.result}}"
+        LAB-02-POST-INCREMENT-20-PTS_RESULTS: "${{steps.lab-02-post-increment-20-pts.outputs.result}}"
+        LAB-03-INSTRUCTIONS-15-PTS_RESULTS: "${{steps.lab-03-instructions-15-pts.outputs.result}}"
       with:
-        runners: lab-01-strcpy-verification,lab-00-environment-check
+        runners: lab-00-environment-check-15-pts,lab-04-pipeline-30-pts,lab-02-post-increment-20-pts,lab-03-instructions-15-pts,lab-04-pipeline-30-pts
