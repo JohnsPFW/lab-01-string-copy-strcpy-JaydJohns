@@ -57,7 +57,7 @@ jobs:
         test-name: Lab 04 - Pipeline (30 pts)
         setup-command: ''
         command: bash .github/classroom/lab04_test.sh
-        timeout: 60
+        timeout: 3
         max-score: 30
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
