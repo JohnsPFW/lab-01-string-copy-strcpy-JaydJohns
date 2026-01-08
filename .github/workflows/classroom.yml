@@ -39,7 +39,7 @@ jobs:
         test-name: Lab 02 - Post-Increment (20 pts)
         setup-command: ''
         command: bash .github/classroom/lab02_test.sh
-        timeout: 60
+        timeout: 1
         max-score: 20
     - name: Lab 03 - Instructions (15 pts)
       id: lab-03-instructions-15-pts
